@@ -1,0 +1,73 @@
+.todoForm {
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.todoForm input {
+    width: 80%;
+    padding: 9px 14px;
+    outline: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+
+.todoForm button {
+    width: 20%;
+    padding: 9px 14px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #0f0;
+    color: #fff;
+}
+
+.toDoList {
+    margin: 0;
+    list-style-type: none;
+}
+
+.toDoItem {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.toDoItem.saved {
+    opacity: 0.3;
+}
+
+.toDoItem span .checkbox {
+    margin-right: 8px;
+}
+
+.toDoItem button {
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.toDoItem button.delete {
+    padding: 2px 8px;
+    background: #f00;
+    margin-left: 10px;
+}
+
+.toDoItem button.edit {
+    padding: 2px 5px;
+    background: rgb(211, 211, 5);
+    margin-left: 10px;
+}
+
+.toDoItem button.save {
+    padding: 2px 5px;
+    background: #0f0;
+}
