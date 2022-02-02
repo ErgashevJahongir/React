@@ -1,5 +1,6 @@
 // TODO Start
 import './App.css';
+import React from 'react';
 import { useState } from 'react';
 import ToDoList from './ToDo/ToDoList';
 import ToDoInput from './ToDo/ToDoInput';
@@ -9,7 +10,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 const HomePage = lazy(() => import('./Autorizatsiya/pages/Home/index'));
 const LoginPage = lazy(() => import('./Autorizatsiya/pages/Auth/Login'));
-const RegisterPage = lazy(() => import('./Autorizatsiya/pages/Auth/register'));
+// const RegisterPage = lazy(() => import('./Autorizatsiya/pages/Auth/register'));
 
 function App() {
     // TODO Start
@@ -105,21 +106,29 @@ function App() {
                 )}
             </section>
             <section className="author">
-                <Suspense fallback={<h1>Error from react</h1>}>
-                    <Router>
+                <Router>
+                    <Suspense fallback={<h1>Error from react</h1>}>
                         <Routes>
                             {token ? (
-                                <Route exact path="/" element={<HomePage />} />
+                                <Route
+                                    exact
+                                    path="/"
+                                    element={<HomePage />}
+                                ></Route>
                             ) : (
                                 <Route
                                     exact
-                                    path="/welcome"
-                                    element={<LoginPage />}
-                                />
+                                    path="/login"
+                                    element={() => (
+                                        <React.Fragment>
+                                            <LoginPage setToken={setToken} />
+                                        </React.Fragment>
+                                    )}
+                                ></Route>
                             )}
                         </Routes>
-                    </Router>
-                </Suspense>
+                    </Suspense>
+                </Router>
             </section>
         </div>
     );
